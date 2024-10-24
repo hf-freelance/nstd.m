@@ -1,0 +1,32 @@
+scalar Date
+
+type Query {
+  contact(name: String!): Contact
+  contacts: [Contact] 
+}
+
+type Contact {
+  id: ID!
+  mail: String!
+  name: String!
+  object: String!
+  content: String!
+}
+
+type Item {
+    id: ID!
+    title: String!			
+	caption: String!	
+	imgReference: String!		
+}
+
+type Mutation {
+  createContact(createContactInput: CreateContactInput!): Contact
+}
+
+input CreateContactInput {
+  mail: String!
+  name: String!
+  object: String!
+  content: String!
+}
