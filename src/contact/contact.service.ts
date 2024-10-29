@@ -1,11 +1,15 @@
 import { Contact, CreateContactInput } from '../schema.graphql';
 import { Injectable } from '@nestjs/common';
+import { Sequelize } from 'sequelize-typescript';
 
 @Injectable()
 export class ContactService {
+  constructor(private sequelize: Sequelize) {}
+
   private readonly messages: Contact[] = [
     { id: "01", mail: 'a@b.com', name: "Hey", object: "Test", content: "Post" }
   ];
+  
   getHello(): string {
     return 'Bonjour!';
   }

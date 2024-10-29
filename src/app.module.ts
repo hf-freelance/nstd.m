@@ -2,13 +2,20 @@ import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ContactModule } from './contact/contact.module';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { SequelizeModule } from '@nestjs/sequelize';
 import { join } from 'path';
+import { CategoriesModule } from './categories/categories.module';
 
 @Module({
   imports: [
     ContactModule,
+    CategoriesModule,
+    SequelizeModule.forRoot({
+      dialect: 'sqlite',
+      host: 'localhost',
+      database: 'Nostra',
+      storage: './database/Nostra.db',
+    }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       typePaths: ['./**/*.graphql'],
