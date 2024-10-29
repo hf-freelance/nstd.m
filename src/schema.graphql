@@ -1,5 +1,3 @@
-scalar Date
-
 type Query {
   contact(name: String!): Contact
   contacts: [Contact] 
@@ -16,8 +14,14 @@ type Contact {
 type Item {
     id: ID!
     title: String!			
-	caption: String!	
-	imgReference: String!		
+	  caption: String!	
+	  imgReference: String!		
+    categoryName: String
+}
+
+type Category {
+    idCategory: ID!
+    label: String!
 }
 
 type Mutation {

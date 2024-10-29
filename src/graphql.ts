@@ -34,6 +34,12 @@ export class Item {
     title: string;
     caption: string;
     imgReference: string;
+    categoryName?: Nullable<string>;
+}
+
+export class Category {
+    idCategory: string;
+    label: string;
 }
 
 export abstract class IMutation {
