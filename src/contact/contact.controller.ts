@@ -6,11 +6,6 @@ import { Contact, CreateContactInput } from 'src/schema.graphql';
 export class ContactController {
   constructor(private readonly contactService: ContactService) {}
 
-  @Get('/')
-  getHello(): string {
-    return this.contactService.getHello();
-  }
-
   @Get('/contact')
   getMessages(): Contact[] {
     return this.contactService.findAll();
