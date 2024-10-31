@@ -10,4 +10,9 @@ export class CategoriesController {
   async getCategories(): Promise<Category[]> {
     return this.categoriesService.findAll();
   }
+
+  @Post('/categories')
+  async postCategories(label: String): Promise<Category> {
+    return this.categoriesService.create(label);
+  }
 }

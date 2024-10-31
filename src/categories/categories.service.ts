@@ -11,6 +11,7 @@ export class CategoriesService {
     return await this.sequelize.query('SELECT * FROM Category;').then((cat) => cat[0]);
   }
 
-  create(): void {
+  async create(label:String): Promise<Category | any> {
+    return await this.sequelize.query('INSERT INTO Category (label) VALUES (\'' + label + '\')');
   }
 }

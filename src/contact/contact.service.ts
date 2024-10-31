@@ -24,10 +24,8 @@ export class ContactService {
 
   create(data: CreateContactInput): Contact {
       let newContact = new Contact();
-      console.log('data', data);
       newContact = {...data, id: '0' + this.messages.length + 1}
       this.messages.push(newContact);
-      console.log(this.messages);
       return newContact;
   }
 }

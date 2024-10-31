@@ -16,7 +16,6 @@ export class ContactResolver {
 
   @Mutation('createContact')
   async create(@Args('CreateContactInput') args: CreateContactInput): Promise<Contact> {
-    console.log('args', args);
     const newContact = await this.contactService.create(args);
     // pubSub.publish('contactCreated', { contactCreated: newContact });
     return newContact;
